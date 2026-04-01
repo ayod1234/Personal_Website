@@ -147,4 +147,10 @@ h1{
 .custom-table tbody tr:hover {
     background-color: rgba(56, 189, 248, 0.2) !important;
     transition: 0.3s;
-} 
+}
+
+.card_values{
+    overflow: hidden;
+    cursor: pointer;
+}
+
