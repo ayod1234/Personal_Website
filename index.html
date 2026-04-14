@@ -1,60 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ayooluwa | Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-    
-    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</head>
-<body class="bg-dark text-white">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href="mystyle.css">
+        <title> Portfolio Website</title>
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Ayo</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-secondary">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">AD.</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#projects">Projects</a>
-                <a class="nav-link" href="#iot-map">Live Map</a>
+        <section class="home">
+            <div class = "home-img">
+                <img src="pics/IMG_6376.jpeg" alt="Ayo's Photo">
             </div>
-        </div>
-    </nav>
-    
-    <main class="container mt-5">
-        <section class="py-5 text-center">
-            <h1 class="display-4 fw-bold">Ayooluwa Durojaiye</h1>
-            <p class="lead text-secondary"> Hi my name is Ayooluwa Durojaiye and 
-                I am a Geomatics Engineering student with a Minor in Software Enginnering.
-                The main reason for this website is to showcase my projects and skills in the field
-                and also kind of serve as way to improve my skills in web development</p>
+            <div class="home-content">
+                <h1>Hi, my name is <span> Ayo </span></h1>
+                <h3 class="typing-text">I'm a <span></span></h3>"
+            </div>
         </section>
-
-        <hr class="border-secondary">
-
-        <section id="projects" class="py-5">
-            <h2 class="mb-4 text-info">Here are some Featured Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card bg-secondary text-white h-100">
-                        <div class="card-body card">
-                            <h5 class="card-title">Real-time MQTT Dashboard</h5>
-                            <p class="card-text">A custom dashboard built to monitor sensor data via MQTT protocols.</p>
-                            <span class="badge bg-dark">JavaScript</span>
-                            <span class="badge bg-dark">IoT</span>
-                        </div>
-                    </div>
-                </div>
-                
-
-        
-
-    <footer class="container mt-5 py-4 border-top border-secondary text-center">
-        <p class="text-muted">© 2026 Ayooluwa Durojaiye • Built with Bootstrap</p>
-    </footer>
-
-    <script src="app.js"></script>
-</body>
+    </body>
 </html>
