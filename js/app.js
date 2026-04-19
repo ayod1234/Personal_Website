@@ -1,3 +1,5 @@
+let map;
+
 function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -73,3 +75,35 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+
+        
+
+ function initMap() {
+    // Calgary Coordinates
+    const calgaryCoords = [51.0447, -114.0719];
+
+    // Initialize the map, set view to Calgary, zoom level 11
+    const map = L.map('map').setView(calgaryCoords, 11);
+
+    
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+    }).addTo(map);
+
+    
+    const customIcon = L.divIcon({
+        className: 'custom-map-marker',
+        html: '<i class="fa-solid fa-location-dot"></i>',
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30]
+    });
+
+    
+    L.marker(calgaryCoords, {icon: customIcon}).addTo(map)
+        .bindPopup('<b>Calgary, AB</b><br>Available for new opportunities.')
+        .openPopup();
+}

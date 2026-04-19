@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href="../css/style_index.css">
+        <link rel = "stylesheet" href="../css/style_contact.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <title> Contact</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="../js/app.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <a href="#" class="logo">Ayo</a>
+            <nav>
+                <ul>
+                    <a href="index.html">Home</a>
+                    <a href="aboutme.html">About Me</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="Contact">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get In <span>Touch</span></h2>
+                    <p class="location-text">Based in Calgary, AB, Canada. Open to Relocate.</p>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:duroayo17@gmail.com" class="text-link"><i class="fa-solid fa-envelope"></i> duroayo17@gmail.com</a>
+                        <a href="tel:8257356142" class="text-link"><i class="fa-solid fa-phone"></i> (825) 735-6142</a>
+                        <a href="https://www.linkedin.com/in/ayooluwa-durojaiye-058597245/" target="_blank" class="text-link"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
+                        <a href="https://github.com/ayod1234" target="_blank" class="text-link"><i class="fa-brands fa-github"></i> GitHub Portfolio</a>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                initMap();
+            });
+        </script>
+
+        <footer>
+            <p>&copy; 2026 Ayo Durojaiye. All rights reserved.</p>
+        </footer>
+            
+    </body>
+
+</html>

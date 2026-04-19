@@ -1,0 +1,98 @@
+/* Container Layout */
+.Contact {
+    padding: 12rem 9% 5rem 9%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(22, 22, 22, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid #38bdf8;
+    border-radius: 20px;
+    padding: 5rem;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+}
+
+
+.contact-info h2 {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info h2 span {
+    color: #38bdf8;
+}
+
+.location-text {
+    font-size: 1.6rem;
+    color: #a0a0a0;
+    margin-bottom: 4rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-links .text-link {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.contact-links i {
+    font-size: 2.5rem;
+}
+
+/* Map Styling */
+.map-container {
+    width: 100%;
+}
+
+#map {
+    height: 450px;
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid #38bdf8;
+    z-index: 1;
+}
+
+
+.custom-map-marker i {
+    color: #38bdf8;
+    font-size: 3.5rem;
+    filter: drop-shadow(0 0 10px #38bdf8);
+}
+
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #161616 !important;
+    color: white !important;
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3) !important;
+}
+
+.leaflet-popup-content b {
+    color: #38bdf8;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 995px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 3rem;
+    }
+    #map {
+        height: 350px;
+    }
+}
