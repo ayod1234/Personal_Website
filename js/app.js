@@ -20,3 +20,56 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).classList.add("active");
     evt.currentTarget.classList.add("active");
 }
+
+
+window.addEventListener('scroll', () => {
+    
+    const projectsContainer = document.getElementById('projects-section');
+    
+    if (projectsContainer) {
+        const rect = projectsContainer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Calculate scroll progress through the container (0 to 1)
+        // rect.top is 0 when the container hits the top of the viewport
+        let scrollProgress = -rect.top / (rect.height - windowHeight);
+        
+        // Clamp the value between 0 and 1 so it doesn't break before or after the section
+        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+        
+        const slides = document.querySelectorAll('.project-slide');
+        const totalSlides = slides.length;
+        
+        // Determine which slide should be active based on the scroll percentage
+        let activeIndex = Math.floor(scrollProgress * totalSlides);
+        
+        // Prevent index out of bounds when scrollProgress is exactly 1
+        if (activeIndex >= totalSlides) activeIndex = totalSlides - 1;
+        
+        // Loop through slides and update classes
+        slides.forEach((slide, index) => {
+            if (index === activeIndex) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    
+    const image = document.getElementById('scrollImage');
+    if (image) {
+        const imageContainer = image.parentElement;
+        const imgRect = imageContainer.getBoundingClientRect();
+        const winHeight = window.innerHeight;
+
+        if (imgRect.top < winHeight && imgRect.bottom > 0) {
+            const scrollFraction = Math.max(0, (winHeight - imgRect.top) / winHeight);
+            const scaleValue = 0.5 + (scrollFraction * 1.0); 
+            const opacityValue = scrollFraction * 2; 
+
+            image.style.transform = `scale(${scaleValue})`;
+            image.style.opacity = Math.min(1, opacityValue);
+        }
+    }
+});

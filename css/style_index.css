@@ -64,6 +64,9 @@ nav a:hover,
 nav a.active{
     color: #38bdf8;
     border-bottom: 3px solid #38bdf8;
+    text-shadow: 0 0 10px #38bdf8, 
+                 0 0 20px #38bdf8, 
+                 0 0 30px #38bdf8;
 }
 
 @media (max-width: 995px){

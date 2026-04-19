@@ -76,6 +76,12 @@
     animation: fadeIn 0.5s ease;
 }
 
+.tab-item h4 {
+    color: #38bdf8;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
 .tab-item.active {
     display: block;
 }
@@ -87,8 +93,20 @@
 
 
 .exp-item li::marker{
-    content: "📌 ";
+    content: " 🌍";
     margin-top: 50px;
+}
+
+.text-link{
+    color: #38bdf8;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.text-link:hover{
+    color: #38bdf8;
+    transform: scale(1.05);
+    text-shadow: 0 0 10px #38bdf8;
 }
 
 .skills-grid {
@@ -102,6 +120,41 @@
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
+
+
+
+.skill-category p {
+    line-height: 1.8;
+    font-size: 12px;
+    
+}
+
+.skill-category strong {
+    display: inline-block;
+    color: #38bdf8;
+}
+
+.tab-btn:hover {
+    text-shadow: 0 0 10px #38bdf8, 
+                 0 0 20px #38bdf8, 
+                 0 0 30px #38bdf8;
+    transform: scale(1.05);
+    transition: 0.3s ease;
+    
+
+}
+
+.exp-item h4{
+    font-size: 1.8rem;
+    color: #38bdf8;
+}
+.exp-item li{
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+
+}
+
+
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
