@@ -11,7 +11,7 @@ This repository contains the source code for my professional portfolio website. 
 * **Frontend:** HTML5, CSS3, Vanilla JavaScript
 * **Mapping:** [Leaflet.js](https://leafletjs.com/)
 * **Icons:** [FontAwesome 6](https://fontawesome.com/)
-* **Map Tiles:** CartoDB Dark Matter
+* **Map Tiles:** CartoDB Dark Matter & OpenStreet Maps
 
 ## Dependencies & Installation
 This is a static frontend website. **There are no package managers (like npm or pip) or complex build steps required to run this project.** All external libraries (Leaflet and FontAwesome) are integrated via Content Delivery Networks (CDNs) directly within the HTML files.
