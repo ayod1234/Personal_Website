@@ -1,11 +1,9 @@
 ## Overview
-This repository contains the source code for my professional portfolio website. It serves as a digital resume and project showcase, highlighting my expertise at the intersection of **Geomatics Engineering** and **Software Development**. 
-
-The website features an interactive UI, including a "scrollytelling" projects showcase and a dynamic spatial map, reflecting my background in spatial data and web development.
+This repository contains the source code for my professional portfolio website. It serves as a digital resume and project showcase, highlighting my expertise in  **Geomatics Engineering** and **Software Development**. 
 
 ## Features
 * **Interactive Projects Showcase:** A scroll-triggered presentation of key academic and professional projects.
-* **Spatial Integration:** An interactive web map built with Leaflet.js and styled with CartoDB Dark Matter tiles.
+* **Spatial Integration:** Two interactive web maps built with Leaflet.js. The maps are a CartoDB Dark Matter tile and a regular OSM basemap.
 * **Dynamic UI Components:** Custom interactive tabs and scroll-zoom effects built with Vanilla JavaScript and CSS3.
 * **Responsive Design:** Optimized layout for both desktop and mobile viewing.
 
