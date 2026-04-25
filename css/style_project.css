@@ -1,7 +1,7 @@
 .projects-scroll-container {
     height: 600vh; 
     position: relative;
-    background-color: black;
+    background-color: var(--bg-color);
     width: 100%;
 }
 
@@ -28,12 +28,12 @@
 
 .projects-header-overlay h2 {
     font-size: 5rem;
-    color: white;
+    color: var(--text-color);
     
 }
 
 .projects-header-overlay span {
-    color: #38bdf8;
+    color: var(--accent-color);
 }
 
 
@@ -58,16 +58,16 @@
 
 
 .project-card {
-    background: rgba(22, 22, 22, 0.85); /* Semi-transparent dark background */
+    background: var(--card-bg); /* Semi-transparent dark background */
     backdrop-filter: blur(10px); /* Gives a glassmorphism effect */
-    border: 1px solid #38bdf8;
+    border: 1px solid var(--accent-color);
     border-radius: 20px;
     padding: 4rem;
     box-shadow: 0 0 30px rgba(56, 189, 248, 0.15); /* Soft blue glow */
 }
 
 .project-title {
-    color: #38bdf8;
+    color: var(--accent-color);
     font-size: 3.2rem;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -86,7 +86,7 @@
 .project-bullets {
     font-size: 1.6rem;
     line-height: 1.8;
-    color: white;
+    color: var(--text-color);
 }
 
 .project-bullets li {

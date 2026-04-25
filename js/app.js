@@ -1,4 +1,24 @@
 let map;
+let mapMode;
+let mapMarker;
+
+
+
+function toggleLightMode() {
+    const body = document.body;
+    const currentMode = body.getAttribute('data-mode') || 'dark';
+    const modeToggleBtn = document.getElementById('modeToggle');
+
+    if (currentMode === 'light') {
+        body.setAttribute('data-mode', 'dark');
+        if (modeToggleBtn) modeToggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.setAttribute('data-mode', 'light');
+        if (modeToggleBtn) modeToggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+    }
+}
 
 // Checks if document is loaded
 // if loaded, it will run the code inside
@@ -7,6 +27,19 @@ let map;
 // if the menu icon is clicked, it will toggle the active class on the nav
 // and toggle the fa-xmark class on the menu icon
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const body = document.body;
+    const modeToggleBtn = document.getElementById('modeToggle');
+
+    if (savedTheme === 'light') {
+        body.setAttribute('data-mode', 'light');
+        if (modeToggleBtn) modeToggleBtn.textContent = '☀️';
+    } else {
+        body.setAttribute('data-mode', 'dark');
+        if (modeToggleBtn) modeToggleBtn.textContent = '🌙';
+    }
+
     const menuIcon = document.querySelector('#menu-icon');
     const nav = document.querySelector('nav');
 
@@ -16,7 +49,46 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.classList.toggle('fa-xmark');
         });
     }
+
+    // Hover Effects
+    const toggleBtn = document.querySelector('#modeToggle');
+
+    toggleBtn.addEventListener('mouseenter', () => {
+        expandArrow();
+    });
+    toggleBtn.addEventListener('mouseleave', () => {
+        shrinkArrow();
+    });
+
 });
+
+function expandArrow() {
+    const toggleBtn = document.getElementById('modeToggle');
+    const body = document.body;
+    if (body.getAttribute('data-mode') === 'light') {
+        toggleBtn.textContent = '🌙';
+        toggleBtn.style.transform = 'scale(1.5)'
+        toggleBtn.style.transition = 'transform 0.5s ease';
+    } else {
+        toggleBtn.textContent = '☀️';
+        toggleBtn.style.transform = 'scale(1.5)'
+        toggleBtn.style.transition = 'transform 0.5s ease';
+    }
+}
+
+function shrinkArrow() {
+    const toggleBtn = document.getElementById('modeToggle');
+    const body = document.body;
+    if (body.getAttribute('data-mode') === 'light') {
+        toggleBtn.textContent = '☀️';
+        toggleBtn.style.transform = 'scale(1)'
+        toggleBtn.style.transition = 'transform 0.5s ease';
+    } else {
+        toggleBtn.textContent = '🌙';
+        toggleBtn.style.transform = 'scale(1)'
+        toggleBtn.style.transition = 'transform 0.5s ease';
+    }
+}
 
 
 // Takes in tab name as input
@@ -121,27 +193,50 @@ function initMap() {
     // Calgary Coordinates
     const calgaryCoords = [51.0447, -114.0719];
 
-    // Initialize the map, set view to Calgary, zoom level 11
-    const map = L.map('map').setView(calgaryCoords, 11);
+    // Initializes the map, set view to Calgary, zoom level 11 if it doesn't exist
+    if (!map) {
+        map = L.map('map').setView(calgaryCoords, 11);
+    }
+
+    // Removes the map layer if it exists
+    if (mapMode) {
+        map.removeLayer(mapMode);
+    }
+
+    // Checks if the map mode is light or dark
+    if (document.body.getAttribute('data-mode') === 'light') {
+        mapMode = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            subdomains: 'abcd',
+            maxZoom: 20
+        });
+    } else {
+        mapMode = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        });
+    }
+
+    // Adds the right colour map type to the base layer
+    mapMode.addTo(map);
+
+    console.log("The current data mode is: " + document.body.getAttribute('data-mode'));
 
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-        subdomains: 'abcd',
-        maxZoom: 20
-    }).addTo(map);
+    // Custom Map Marker
+    if (!mapMarker) {
+        const customIcon = L.divIcon({
+            className: 'custom-map-marker',
+            html: '<i class="fa-solid fa-location-dot"></i>',
+            iconSize: [30, 30],
+            iconAnchor: [15, 30],
+            popupAnchor: [0, -30]
+        });
 
 
-    const customIcon = L.divIcon({
-        className: 'custom-map-marker',
-        html: '<i class="fa-solid fa-location-dot"></i>',
-        iconSize: [30, 30],
-        iconAnchor: [15, 30],
-        popupAnchor: [0, -30]
-    });
-
-
-    L.marker(calgaryCoords, { icon: customIcon }).addTo(map)
-        .bindPopup('<b>Calgary, AB</b><br>Available for new opportunities.')
-        .openPopup();
+        mapMarker = L.marker(calgaryCoords, { icon: customIcon }).addTo(map)
+            .bindPopup('<b>Calgary, AB</b><br>Available for new opportunities.')
+            .openPopup();
+    }
 }
