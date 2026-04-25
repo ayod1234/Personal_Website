@@ -69,7 +69,18 @@ nav a.active{
                  0 0 30px #38bdf8;
 }
 
+#menu-icon {
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
 @media (max-width: 995px){
+    #menu-icon {
+        display: block;
+    }
+
     nav{
         position: absolute;
         top: 100%;
@@ -81,6 +92,7 @@ nav a.active{
         padding: 1rem solid;
         background-color: #161616;
         border-top:0.1rem solid rgba(0,0,0,0.1);
+        display: none;
     }
 
     nav.active{
