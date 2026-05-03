@@ -92,7 +92,7 @@
 
 
 .exp-item li::marker {
-    content: " 🌍";
+    content: " 📌";
     margin-top: 50px;
 }
 
